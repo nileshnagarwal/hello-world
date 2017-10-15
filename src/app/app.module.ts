@@ -8,7 +8,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AuthorsComponent } from './authors/authors.component';
-import { FavStarComponent } from './fav-star/fav-star.component';
+import { FavouriteComponent } from './favourite/favourite.component';
 import { TitlecaseComponent } from './titlecase/titlecase.component';
 import { TitlecasePipe } from './titlecase.pipe';
 
@@ -18,7 +18,7 @@ import { TitlecasePipe } from './titlecase.pipe';
     CourseComponent,
     CoursesComponent,
     AuthorsComponent,
-    FavStarComponent,
+    FavouriteComponent,
     TitlecaseComponent,
     TitlecasePipe 
   ],
