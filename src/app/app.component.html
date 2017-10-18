@@ -1,9 +1,1 @@
-<!-- <favourite [is-favourite]="post.isFavourite" (click)="onFavouriteChanged($event)"></favourite> -->
-<bootstrap-panel>
-    <div class="heading">Title</div>
-    <div class="body">
-        <p>
-            This is sample text...
-        </p>
-    </div>
-</bootstrap-panel>
+<like [likesCount]="tweet.likesCount" [isActive]="tweet.isLiked"></like>
