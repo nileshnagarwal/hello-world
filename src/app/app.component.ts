@@ -22,5 +22,7 @@ export class AppComponent {
     body:"Here is the body of a tweet...",
     isLiked:true,
     likesCount:10
-  } 
+  }
+
+  viewMode = 'map';
 }
