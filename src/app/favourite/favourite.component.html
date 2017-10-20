@@ -1,12 +1,12 @@
-<!-- <span 
-  class="glyphicon" 
-  [class.glyphicon-star]="getStatus()"
-  [class.glyphicon-star-empty]="!getStatus()"
-  (click)="onClick()"
-></span> -->
-
 <span 
-  
+  class="glyphicon" 
+  [ngClass]="{
+    'glyphicon-star':getStatus(),
+    'glyphicon-star-empty':!getStatus()}"
+  (click)="onClick()"
+></span>
+
+<!-- <span 
   [class] = 'getStatus()?"glyphicon glyphicon-star":"glyphicon glyphicon-star-empty"'
   (click) = "onClick()"
-></span>
+></span> -->

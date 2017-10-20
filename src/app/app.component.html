@@ -1,8 +1,1 @@
-<button (click)="onAdd()">Add Course</button>
-<button (click)="loadCourses()">Load Courses</button>
-<ul>
-    <li *ngFor = "let course of courses; trackBy: trackCourse">
-        {{course.id}} - {{ course.name }}
-        <button (click)="onRemove(course)">Remove</button>
-    </li>
-</ul>
+<favourite [is-favourite]="true"></favourite>
