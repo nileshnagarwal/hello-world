@@ -8,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class ContactFormComponent {
 
   log(x){
+    // console.log(x);
+  }
+
+  submit(x){
     console.log(x);
   }
 }
