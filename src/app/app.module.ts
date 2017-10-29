@@ -1,4 +1,4 @@
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthorsService } from './authors/authors.service';
 import { CoursesService } from './courses.service';
 import { CourseComponent } from './course/course.component';
@@ -36,7 +36,8 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     CoursesService,
