@@ -10,7 +10,12 @@
             *ngIf="username.invalid
             &&username.touched" 
             class="alert alert-danger">
-            Username is required.
+            <div *ngIf="username.errors.required">Username is required</div>
+            <div *ngIf="username.errors.minlength">
+                Username should be of minimum 
+                {{ username.errors.minlength.requiredLength }} 
+                characters
+            </div>
         </div>
     Username Validity = {{ form.get('username').valid }} <br>
     Password Validity = {{ form.get('password').valid }}
