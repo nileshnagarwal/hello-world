@@ -1,45 +1,47 @@
 <form [formGroup]="form">
-    <div class="form-group">
-        <label for="username">Username</label>
-        <input 
-            formControlName="username"            
-            id="username" 
-            type="text" 
-            class="form-control">
-        <div *ngIf="username.pending">Checking for uniqueness...</div>
-        <div 
-            *ngIf="username.invalid
-            &&username.touched" 
-            class="alert alert-danger">
-            <div *ngIf="username.errors.required">Username is required.</div>
-            <div *ngIf="username.errors.minlength">
-                Username should be of minimum.
+    <div formGroupName="account">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input 
+                formControlName="username"            
+                id="username" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="username.pending">Checking for uniqueness...</div>
+            <div 
+                *ngIf="username.invalid
+                &&username.touched" 
+                class="alert alert-danger">
+                <div *ngIf="username.errors.required">Username is required.</div>
+                <div *ngIf="username.errors.minlength">
+                    Username should be of minimum.
+                </div>
+                    {{ username.errors.minlength.requiredLength }} 
+                    characters
+                
+                <div *ngIf="username.errors.cannotContainSpace">
+                    Username should not contain space. Remove the space from location {{ username.errors.cannotContainSpace.foundAt }}
+                </div>
+                <div *ngIf="username.errors.shouldBeUnique">
+                    Username is already taken.
+                </div>
             </div>
-                {{ username.errors.minlength.requiredLength }} 
-                characters
-            
-            <div *ngIf="username.errors.cannotContainSpace">
-                Username should not contain space. Remove the space from location {{ username.errors.cannotContainSpace.foundAt }}
-            </div>
-            <div *ngIf="username.errors.shouldBeUnique">
-                Username is already taken.
-            </div>
+        Username Validity = {{ form.get('account.username').valid }} <br>
+        Password Validity = {{ form.get('account.password').valid }}
         </div>
-    Username Validity = {{ form.get('username').valid }} <br>
-    Password Validity = {{ form.get('password').valid }}
-    </div>
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input 
-            formControlName="password"
-            id="password" 
-            type="text" 
-            class="form-control">
-        <div 
-            *ngIf="password.invalid
-            &&password.touched" 
-            class="alert alert-danger">
-            Password is invalid.
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input 
+                formControlName="password"
+                id="password" 
+                type="text" 
+                class="form-control">
+            <div 
+                *ngIf="password.invalid
+                &&password.touched" 
+                class="alert alert-danger">
+                Password is invalid.
+            </div>
         </div>
     </div>
     <button class="btn btn-primary" type="submit">Sign Up</button>
