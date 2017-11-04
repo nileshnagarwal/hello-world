@@ -6,6 +6,7 @@
             id="username" 
             type="text" 
             class="form-control">
+        <div *ngIf="username.pending">Checking for uniqueness...</div>
         <div 
             *ngIf="username.invalid
             &&username.touched" 
@@ -19,6 +20,9 @@
             
             <div *ngIf="username.errors.cannotContainSpace">
                 Username should not contain space. Remove the space from location {{ username.errors.cannotContainSpace.foundAt }}
+            </div>
+            <div *ngIf="username.errors.shouldBeUnique">
+                Username is already taken.
             </div>
         </div>
     Username Validity = {{ form.get('username').valid }} <br>
