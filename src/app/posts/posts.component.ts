@@ -14,24 +14,30 @@ export class PostsComponent implements OnInit{
 
   ngOnInit(){
     this.service.getPosts()
-    .subscribe(response => {
-      this.posts = response.json();
-    }, error => {
-      alert("An unexpected error occured");
-    });
+      .subscribe(
+        response => {
+          this.posts = response.json();
+        }, 
+        error => {
+          alert("An unexpected error occured");
+        }
+      );
   }
 
   createPost(input: HTMLInputElement){
     let post = {title: input.value};
     input.value = "";
     this.service.createPost(post)
-      .subscribe(response => {
-        post['id'] = response.json().id;
-        this.posts.splice(0,0,post);
-        console.log(response.json());
-      }, error => {
-        alert("An unexpected error occured");
-      });
+      .subscribe(
+        response => {
+          post['id'] = response.json().id;
+          this.posts.splice(0,0,post);
+          console.log(response.json());
+        }, 
+        error => {
+          alert("An unexpected error occured");
+        }
+      );
   }
 
   updatePost(post){
@@ -39,21 +45,27 @@ export class PostsComponent implements OnInit{
     // --In "put" method we pass the whole object instead of just the keys that have been modified
 
     this.service.updatePost(post.id)
-      .subscribe(Response => {
-        console.log(Response.json());
-      }, error => {
-        alert("An unexpected error occured");
-      });
+      .subscribe(
+        response => {
+          console.log(response.json());
+        }, 
+        error => {
+          alert("An unexpected error occured");
+        }
+      );
   }
 
   deletePost(post){
     this.service.deletePost(post.id)
-      .subscribe(response => {
-        let index = this.posts.indexOf(post);
-        this.posts.splice(index,1);
-      }, error => {
-        alert("An unexpected error occured");
-      });
+      .subscribe(
+        response => {
+          let index = this.posts.indexOf(post);
+          this.posts.splice(index,1);
+        }, 
+        error => {
+          alert("An unexpected error occured");
+        }
+      );
   }
     
 }
