@@ -18,8 +18,12 @@ export class PostsComponent implements OnInit{
         response => {
           this.posts = response.json();
         }, 
-        error => {
-          alert("An unexpected error occured");
+        (error : Response) => {
+          if(error.status === 400){
+            // this.form.setErrors({error.json()})
+          }
+          else
+            alert("An unexpected error occured");
         }
       );
   }
@@ -62,8 +66,11 @@ export class PostsComponent implements OnInit{
           let index = this.posts.indexOf(post);
           this.posts.splice(index,1);
         }, 
-        error => {
-          alert("An unexpected error occured");
+        (error : Response) => {
+          if(error.status === 404)
+            alert("The post has already been deleted");  
+          else
+            alert("An unexpected error occured");
         }
       );
   }
