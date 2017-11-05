@@ -28,5 +28,15 @@ export class PostsComponent {
         console.log(response.json());
       });
   }
+
+  updatePost(post){
+    // this.http.put(this.url + "/" + post.id, JSON.stringify(post)) 
+    // --In "put" method we pass the whole object instead of just the keys that have been modified
+
+    this.http.patch(this.url + "/" + post.id, JSON.stringify({ isRead : true }))
+      .subscribe(Response => {
+        console.log(Response.json());
+      });
+  }
     
 }
