@@ -6,14 +6,11 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./like.component.css']
 })
 export class LikeComponent {
-
   @Input('likesCount') likesCount: number;
   @Input('isActive') isActive: boolean;
 
-  onClick(){
-    this.likesCount += (this.isActive)? -1 : +1;
+  onClick() { 
+    this.likesCount += (this.isActive) ? -1 : 1;
     this.isActive = !this.isActive;
-
-    console.log("The button is ",this.isActive);
   }
 }
